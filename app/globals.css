@@ -1,0 +1,312 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --apex-black: #0A0A0A;
+    --apex-charcoal: #1A1A1A;
+    --apex-gunmetal: #2D2D2D;
+    --apex-silver: #8A8A8A;
+    --apex-platinum: #E5E5E5;
+    --apex-white: #FFFFFF;
+    --apex-gold: #C9A227;
+    --apex-gold-light: #E8C547;
+    --apex-gold-dark: #9A7B1A;
+  }
+
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--apex-gold) var(--apex-charcoal);
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--apex-charcoal);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--apex-gold);
+    border-radius: 4px;
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--apex-gold-light);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--apex-black);
+    color: var(--apex-platinum);
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: var(--apex-gold);
+    color: var(--apex-black);
+  }
+}
+
+@layer components {
+  /* Logo styles */
+  .apex-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    letter-spacing: 0.25em;
+    font-weight: 400;
+  }
+
+  .apex-logo-white {
+    color: var(--apex-white);
+  }
+
+  .apex-logo-gold {
+    color: var(--apex-gold);
+  }
+
+  /* Section heading styles */
+  .section-title {
+    @apply font-display text-4xl md:text-5xl lg:text-6xl tracking-apex uppercase;
+    color: var(--apex-white);
+  }
+
+  .section-subtitle {
+    @apply font-body text-lg md:text-xl font-light tracking-wide;
+    color: var(--apex-silver);
+  }
+
+  /* Gold accent line */
+  .gold-line {
+    @apply h-0.5 w-16;
+    background: linear-gradient(90deg, var(--apex-gold) 0%, var(--apex-gold-light) 50%, var(--apex-gold) 100%);
+  }
+
+  .gold-line-animated {
+    @apply gold-line transition-all duration-500;
+    background-size: 200% 100%;
+    animation: shimmer 3s linear infinite;
+  }
+
+  /* Button styles */
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-8 py-4 font-body font-semibold text-sm tracking-wider uppercase transition-all duration-300;
+    background: var(--apex-gold);
+    color: var(--apex-black);
+    border: 2px solid var(--apex-gold);
+  }
+
+  .btn-primary:hover {
+    background: transparent;
+    color: var(--apex-gold);
+    box-shadow: 0 0 20px rgba(201, 162, 39, 0.3);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center px-8 py-4 font-body font-semibold text-sm tracking-wider uppercase transition-all duration-300;
+    background: transparent;
+    color: var(--apex-white);
+    border: 2px solid var(--apex-white);
+  }
+
+  .btn-secondary:hover {
+    background: var(--apex-white);
+    color: var(--apex-black);
+  }
+
+  .btn-gold-outline {
+    @apply inline-flex items-center justify-center px-6 py-3 font-body font-semibold text-sm tracking-wider uppercase transition-all duration-300;
+    background: transparent;
+    color: var(--apex-gold);
+    border: 2px solid var(--apex-gold);
+  }
+
+  .btn-gold-outline:hover {
+    background: var(--apex-gold);
+    color: var(--apex-black);
+  }
+
+  /* Card styles */
+  .card {
+    @apply rounded-sm overflow-hidden transition-all duration-500;
+    background: var(--apex-charcoal);
+    border: 1px solid var(--apex-gunmetal);
+  }
+
+  .card:hover {
+    border-color: var(--apex-gold);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5), 0 0 0 1px var(--apex-gold);
+    transform: translateY(-4px);
+  }
+
+  /* Form styles */
+  .form-input {
+    @apply w-full px-4 py-3 font-body text-base transition-all duration-300 outline-none;
+    background: var(--apex-charcoal);
+    border: 1px solid var(--apex-gunmetal);
+    color: var(--apex-platinum);
+  }
+
+  .form-input::placeholder {
+    color: var(--apex-silver);
+  }
+
+  .form-input:focus {
+    border-color: var(--apex-gold);
+    box-shadow: 0 0 0 2px rgba(201, 162, 39, 0.2);
+  }
+
+  .form-label {
+    @apply block mb-2 font-body text-sm font-medium tracking-wide uppercase;
+    color: var(--apex-silver);
+  }
+
+  /* Badge styles */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 text-xs font-semibold tracking-wider uppercase rounded-sm;
+  }
+
+  .badge-gold {
+    background: rgba(201, 162, 39, 0.15);
+    color: var(--apex-gold);
+    border: 1px solid var(--apex-gold);
+  }
+
+  .badge-reserved {
+    background: rgba(232, 197, 71, 0.15);
+    color: var(--apex-gold-light);
+    border: 1px solid var(--apex-gold-light);
+  }
+
+  /* Glass effect */
+  .glass {
+    background: rgba(26, 26, 26, 0.8);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Text gradient */
+  .text-gradient-gold {
+    background: linear-gradient(135deg, var(--apex-gold) 0%, var(--apex-gold-light) 50%, var(--apex-gold) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Noise texture overlay */
+  .noise-overlay::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  /* Vignette effect */
+  .vignette::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 0%, rgba(10, 10, 10, 0.8) 100%);
+    pointer-events: none;
+  }
+}
+
+@layer utilities {
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Animation delays */
+  .animation-delay-100 { animation-delay: 100ms; }
+  .animation-delay-200 { animation-delay: 200ms; }
+  .animation-delay-300 { animation-delay: 300ms; }
+  .animation-delay-400 { animation-delay: 400ms; }
+  .animation-delay-500 { animation-delay: 500ms; }
+  .animation-delay-600 { animation-delay: 600ms; }
+  .animation-delay-700 { animation-delay: 700ms; }
+  .animation-delay-800 { animation-delay: 800ms; }
+
+  /* Gradient borders */
+  .border-gradient-gold {
+    border-image: linear-gradient(90deg, var(--apex-gold) 0%, var(--apex-gold-light) 50%, var(--apex-gold) 100%) 1;
+  }
+
+  /* Custom letter spacing */
+  .tracking-apex-title {
+    letter-spacing: 0.3em;
+  }
+
+  /* Responsive typography */
+  .text-responsive-xl {
+    @apply text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl;
+  }
+
+  .text-responsive-lg {
+    @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl;
+  }
+}
+
+/* Custom animation classes */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(201, 162, 39, 0.4); }
+  50% { box-shadow: 0 0 0 15px rgba(201, 162, 39, 0); }
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s infinite;
+}
+
+/* Page transition */
+.page-transition {
+  animation: pageIn 0.6s ease-out;
+}
+
+@keyframes pageIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Scroll indicator animation */
+@keyframes scrollBounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(10px); }
+  60% { transform: translateY(5px); }
+}
+
+.animate-scroll-bounce {
+  animation: scrollBounce 2s infinite;
+}
