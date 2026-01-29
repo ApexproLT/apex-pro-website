@@ -28,7 +28,7 @@ export function Hero() {
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1920&auto=format&fit=crop&q=80')`,
+            backgroundImage: `url('https://media.drive.com.au/obj/tx_q:70,rs:auto:1920:1080:1/caradvice/private/7018a9ada60f713543390d262610250b')`,
           }}
         />
         {/* Dark overlay */}
