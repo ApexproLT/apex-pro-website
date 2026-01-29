@@ -15,7 +15,7 @@ export const translations = {
     hero: {
       badge: 'Premium komerciniai automobiliai',
       headline: 'APEX PRO',
-      subheadline: 'Kokybė, kuri dirba',
+      subheadline: 'Vežk savo verslą į priekį',
       description: 'Premium komerciniai automobiliai iš Vokietijos. Patikrinti, paruošti ir pristatyti jūsų verslui.',
       ctaPrimary: 'Peržiūrėti inventorių',
       ctaSecondary: 'Susisiekti',
@@ -164,7 +164,7 @@ export const translations = {
     hero: {
       badge: 'Premium Commercial Vehicles',
       headline: 'APEX PRO',
-      subheadline: 'Quality That Works',
+      subheadline: 'Drive your business forward',
       description: 'Premium commercial vehicles sourced from Germany. Inspected, prepared, and delivered to your fleet.',
       ctaPrimary: 'View Inventory',
       ctaSecondary: 'Contact Us',
