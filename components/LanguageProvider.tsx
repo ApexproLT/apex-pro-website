@@ -14,19 +14,14 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>('lt');
 
-  useEffect(() => {
-    // Check for saved preference
-    const saved = localStorage.getItem('apex-locale') as Locale;
-    if (saved && (saved === 'lt' || saved === 'en')) {
-      setLocaleState(saved);
-    } else {
-      // Check browser language
-      const browserLang = navigator.language.toLowerCase();
-      if (browserLang.startsWith('en')) {
-        setLocaleState('en');
-      }
-    }
-  }, []);
+useEffect(() => {
+  // Check for saved preference only
+  const saved = localStorage.getItem('apex-locale') as Locale;
+  if (saved && (saved === 'lt' || saved === 'en')) {
+    setLocaleState(saved);
+  }
+  // If no saved preference, keeps default Lithuanian
+}, []);
 
   const setLocale = (newLocale: Locale) => {
     setLocaleState(newLocale);
