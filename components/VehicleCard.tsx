@@ -39,24 +39,15 @@ export function VehicleCard({ vehicle }: VehicleCardProps) {
     <div className="card group h-full flex flex-col">
       {/* Image Container */}
       <div className="relative aspect-[16/10] overflow-hidden bg-apex-charcoal">
-        {/* Loading Skeleton */}
-        {!imageLoaded && !imageError && (
-          <div className="absolute inset-0 bg-apex-charcoal animate-pulse" />
-        )}
-
-        {/* Vehicle Image */}
-        <img
-          src={imageError ? fallbackImage : vehicle.image_url || fallbackImage}
-          alt={`${vehicle.make} ${vehicle.model}`}
-          className={`w-full h-full object-cover transition-all duration-700 group-hover:scale-105 ${
-            imageLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-          onLoad={() => setImageLoaded(true)}
-          onError={() => {
-            setImageError(true);
-            setImageLoaded(true);
-          }}
-        />
+      {/* Vehicle Image */}
+    <img
+      src={vehicle.image_url || fallbackImage}
+      alt={`${vehicle.make} ${vehicle.model}`}
+      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
+      onError={(e) => {
+        (e.target as HTMLImageElement).src = fallbackImage;
+      }}
+    />
 
         {/* Overlay gradient */}
         <div className="absolute inset-0 bg-gradient-to-t from-apex-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
